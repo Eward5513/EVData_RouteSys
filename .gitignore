@@ -1,0 +1,39 @@
+# 忽略 Python 编译文件
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 忽略虚拟环境
+.env/
+.venv/
+env/
+venv/
+
+# 忽略日志文件
+*.log
+
+# 忽略临时文件
+*.tmp
+*.swp
+
+# 忽略 Jupyter Notebook 的检查点
+# .ipynb_checkpoints/
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略 CSV 和 TXT 文件
+*.csv
+*.txt
+
+cmake-build-debug/
+
+.vscode/
+
+.idea/
+
+.vscode/
+
+.vscode/
