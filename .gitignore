@@ -27,6 +27,7 @@ Thumbs.db
 # 忽略 CSV 和 TXT 文件
 *.csv
 *.txt
+!ReadMe.txt
 
 cmake-build-debug/
 
