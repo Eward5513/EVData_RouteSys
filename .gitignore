@@ -28,6 +28,7 @@ Thumbs.db
 *.csv
 *.txt
 !ReadMe.txt
+!CMakeLists.txt
 
 cmake-build-debug/
 
