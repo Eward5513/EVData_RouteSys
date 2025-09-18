@@ -18,18 +18,12 @@
 #include <thread>
 #include <future>
 #include <boost/thread/thread.hpp>
-#include <semaphore.h>
 #include "boost/thread.hpp"
 #include <ctime>
 #include <cstdlib>
 #include <random>
 #include <iostream>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <unistd.h>
 #include <cstring>
-#include <arpa/inet.h>
 #include <sstream>
 using namespace std;
 constexpr int INF = 999999999;

@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 3.30)
 project(RouteSys_Project)
 
-find_package(Boost 1.71.0 COMPONENTS thread system filesystem REQUIRED)
-if (Boost_FOUND)
-    message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
-    message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARY_DIRS}")
-    message(STATUS "Boost_VERSION: ${Boost_VERSION}")
-    include_directories(${Boost_INCLUDE_DIRS})
-    link_directories(${Boost_LIBRARY_DIRS})
-else()
-    message(FATAL_ERROR "Boost not found")
-endif ()
+set(BOOST_ROOT "E:/something/boost_1_71_0")
+include_directories("${BOOST_ROOT}")
+
+# 四个 .a（写“完整文件名”最稳）
+set(BOOST_LIB_DIR "${BOOST_ROOT}/stage/lib")
+set(BOOST_THREAD   "${BOOST_LIB_DIR}/libboost_thread-mgw151-mt-s-x64-1_71.a")
+set(BOOST_CHRONO   "${BOOST_LIB_DIR}/libboost_chrono-mgw151-mt-s-x64-1_71.a")
+set(BOOST_FILESYS  "${BOOST_LIB_DIR}/libboost_filesystem-mgw151-mt-s-x64-1_71.a")
+set(BOOST_SYSTEM   "${BOOST_LIB_DIR}/libboost_system-mgw151-mt-s-x64-1_71.a")
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -25,3 +24,9 @@ add_executable(RouteSys_Project main.cpp
         Insert_data_generation.cpp
         insertion.cpp
         temp.cpp)
+
+target_link_libraries(RouteSys_Project PRIVATE
+${BOOST_THREAD} ${BOOST_CHRONO} ${BOOST_FILESYS} ${BOOST_SYSTEM}
+)
+      
+target_link_options(RouteSys_Project PRIVATE -static -static-libgcc -static-libstdc++)
